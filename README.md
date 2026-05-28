@@ -1,3 +1,5 @@
+This is a fork! Please check out the original project at https://github.com/fediaFedia/WindowsMediaCenter
+
 Windows Media Center skin for Kodi
 Beta 1
 
