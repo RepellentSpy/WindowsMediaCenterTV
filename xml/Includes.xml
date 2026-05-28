@@ -3019,56 +3019,31 @@
 </control>
 	</include>
 
+
 	<include name="MainWindowMouseButtons">
 		<control type="group">
 			<left>30</left>
 			<top>15</top>
 			<animation effect="fade" time="200" condition="Window.IsVisible(10099)">conditional</animation>
 			<visible>Window.IsVisible(10099)</visible>
-			
 			<control type="button">
-				<description>Back Icon</description>
+				<description>Back push button</description>
 				<left>0</left>
 				<top>10</top>
-				<width>70</width>
-
-				<onclick>Back</onclick>
-
-				<height>70</height>
-				<aspectratio>keep</aspectratio>
-				<texturefocus>vista\controls\GOBACK.FOCUS.png</texturefocus>
-				<texturenofocus>vista\controls\GOBACK.NOFOCUS.png</texturenofocus>
-			</control>
-			
-			<control type="button">
-				<description>Home push button</description>
-				<left>80</left>
-				<top>5</top>
-				<width>75</width>
-				<aspectratio>keep</aspectratio>
-				<height>75</height>
-				<label>31003</label>
+				<width>50</width>
+				<height>50</height>
+				<label>1036</label>
 				<font/>
 				<onclick>Dialog.Close(all,true)</onclick>
-				<onclick>ActivateWindow(home)</onclick>
-				<texturefocus>kodi-button3.png</texturefocus>
-				<texturenofocus>kodi-button2.png</texturenofocus>
-				<onleft>40</onleft>
-				<onright>40</onright>
-				<onup>40</onup>
-				<ondown>40</ondown>
+				<onclick>PreviousMenu</onclick>
+				
+				<texturefocus>AAAfloor_buttonFO.png</texturefocus>
+				<texturenofocus>AAAfloor_buttonFO.png</texturenofocus>
+				<onleft>50</onleft>
+				<onright>50</onright>
+				<onup>50</onup>
+				<ondown>50</ondown>
 			</control>
-		
-		</control>
-	</include>
-	
-	<include name="MainWindowMouseButtonsAlt">
-		<control type="group">
-			<left>30</left>
-			<top>15</top>
-			<animation effect="fade" time="200" condition="Window.IsVisible(10099)">conditional</animation>
-			<visible>Window.IsVisible(10099)</visible>
-			
 			<control type="button">
 				<description>Back Icon</description>
 				<left>0</left>
@@ -3082,7 +3057,6 @@
 				<texturefocus>vista\controls\GOBACK.FOCUS.png</texturefocus>
 				<texturenofocus>vista\controls\GOBACK.NOFOCUS.png</texturenofocus>
 			</control>
-			
 			<control type="button">
 				<description>Home push button</description>
 				<left>80</left>
@@ -3102,6 +3076,37 @@
 				<ondown>40</ondown>
 			</control>
 		
+			<control type="button">
+				<description>Refresh push button</description>
+				<left>165</left>
+				<top>10</top>
+				<width>1</width>
+				<height>1</height>
+				<label>31003</label>
+				<font/>
+				<onclick>ReloadSkin()</onclick>
+				<texturefocus>floor_buttonFO.png</texturefocus>
+				<texturenofocus>floor_button.png</texturenofocus>
+				<onleft>50</onleft>
+				<onright>50</onright>
+				<onup>50</onup>
+				<ondown>50</ondown>
+			</control><!--
+			<control type="image">
+				<description>Back Icon</description>
+				<left>165</left>
+				<top>12</top>
+				<width>50</width>
+				<height>50</height>
+				<aspectratio>keep</aspectratio>
+				<texture>icon_refresh.png</texture>
+			</control>-->
+			<!--<control type="label"> Addressbar - i don't like it
+				<top>10</top>
+				<left>225</left>
+				<width>1000</width>
+				<label>$INFO[Container.FolderPath]</label>
+			</control>-->
 		</control>
 	</include>
 	<include name="CommonNowPlaying">
@@ -4074,405 +4079,441 @@
 	</include>
 	<include name="CommonNowPlaying_Controls">
 
-		<control type="button" id="610">
-			<description>Fake Button to fix Player Controls Navigation</description>
-			<visible>false</visible>
-		</control>
-		
-
-		
+	<control type="button" id="610">
+		<description>Fake Button to fix Player Controls Navigation</description>
+		<visible>false</visible>
+	</control>
 	
-<control type="group" id="90060">
-	<visible>Player.HasMedia</visible>
-	<visible>VideoPlayer.Content(LiveTV)</visible>
-	<include>VisibleFadeEffect</include>
-	<control type="image">
-		<width>1920</width>
-		<top>-15</top>
-		<height>100</height>
-		<left>-550</left>
-		<aspectratio>keep</aspectratio>
-		<texture>vista\controls\bottombar.png</texture>
-	</control>
-	<control type="togglebutton" id="607">
-		<top>-10</top>
-		<left>470</left>
-		<width>70</width>
-		<height>70</height>
-		<aspectratio>keep</aspectratio>
-		<label/>
-		<texturefocus>vista\controls\PAUSE.DISABLED.png</texturefocus>
-		<texturenofocus>vista\controls\PAUSE.DISABLED.png</texturenofocus>
-		<onclick>PlayerControl(Play)</onclick>
-		<usealttexture>Player.Paused | Player.Forwarding | Player.Rewinding</usealttexture>
-		<alttexturefocus>vista\controls\PLAY.DISABLED.png</alttexturefocus>
-		<alttexturenofocus>vista\controls\PLAY.DISABLED.png</alttexturenofocus>
-	</control>
-	<control type="grouplist" id="9005">
-		<width>1000</width>
-		<height>50</height>
-		<itemgap>2</itemgap>
-		<orientation>horizontal</orientation>
-		<onright>50</onright>
-		<onback>50</onback>
-		<onup>610</onup>
-		<ondown>611</ondown>
-		<defaultcontrol always="true">603</defaultcontrol>
-		<control type="button" id="600">
-			<width>62</width>
-			<height>50</height>
-			<aspectratio>keep</aspectratio>
-			<label/>
-			<texturefocus>vista\controls\RECORD.FOCUS.png</texturefocus>
-			<texturenofocus>vista\controls\RECORD.NOFOCUS.png</texturenofocus>
-			<onclick>PVR.ToggleRecordPlayingChannel</onclick>
-								<enable>PVR.CanRecordPlayingChannel</enable>
-					<animation effect="fade" start="100" end="30" time="75" condition="!PVR.CanRecordPlayingChannel">Conditional</animation>
-		</control>
-		<control type="button" id="601">
-			<width>62</width>
-			<height>50</height>
-			<aspectratio>keep</aspectratio>
-			<label/>
-			<texturefocus>vista\controls\GUIDE.FOCUS.png</texturefocus>
-			<texturenofocus>vista\controls\GUIDE.NOFOCUS.png</texturenofocus>
-					<onclick>ActivateWindow(PVRGuideInfo)</onclick>
-		</control>
-		<control type="button" id="602">
-			<width>62</width>
-			<height>50</height>
-			<aspectratio>keep</aspectratio>
-			<label/>
-			<texturefocus>vista\controls\MINUS.FOCUS.png</texturefocus>
-			<texturenofocus>vista\controls\MINUS.NOFOCUS.png</texturenofocus>
-			<onclick>ChannelDown</onclick>
-		</control>
-		<control type="button" id="603">
-			<width>62</width>
-			<height>50</height>
-			<aspectratio>keep</aspectratio>
-			<label/>
-			<texturefocus>vista\controls\PLUS.FOCUS.png</texturefocus>
-			<texturenofocus>vista\controls\PLUS.NOFOCUS.png</texturenofocus>
-			<onclick>ChannelUp</onclick>
-		</control>
+	<!-- ================= LIVE TV CONTROLS ================= -->
+	<control type="group" id="90060">
+		<visible>Player.HasMedia</visible>
+		<visible>VideoPlayer.Content(LiveTV)</visible>
+		<include>VisibleFadeEffect</include>
+		<defaultcontrol always="true">607</defaultcontrol>
 		<control type="image">
-			<width>10</width>
+			<width>1920</width>
+			<top>-15</top>
+			<height>100</height>
+			<left>-550</left>
 			<aspectratio>keep</aspectratio>
-			<texture>vista\controls\DIVIDER.png</texture>
+			<texture>vista\controls\bottombar.png</texture>
 		</control>
-		<control type="button" id="604">
-			<width>62</width>
+
+		<!-- Converted to standard group with manual pixel coordinates -->
+		<control type="group" id="9006">
+			<width>1000</width>
 			<height>50</height>
-			<aspectratio>keep</aspectratio>
-			<label/>
-			<texturefocus>vista\controls\STOP.FOCUS.png</texturefocus>
-			<texturenofocus>vista\controls\STOP.NOFOCUS.png</texturenofocus>
-			<onclick>PlayerControl(Stop)</onclick>
+
+			<control type="button" id="600">
+				<left>0</left>
+				<width>62</width>
+				<height>50</height>
+				<aspectratio>keep</aspectratio>
+				<label/>
+				<texturefocus>vista\controls\RECORD.FOCUS.png</texturefocus>
+				<texturenofocus>vista\controls\RECORD.NOFOCUS.png</texturenofocus>
+				<onclick>PVR.ToggleRecordPlayingChannel</onclick>
+				<enable>PVR.CanRecordPlayingChannel</enable>
+				<animation effect="fade" start="100" end="30" time="75" condition="!PVR.CanRecordPlayingChannel">Conditional</animation>
+				<onleft>100117</onleft>
+				<onright>601</onright>
+			</control>
+			<control type="button" id="601">
+				<left>64</left>
+				<width>62</width>
+				<height>50</height>
+				<aspectratio>keep</aspectratio>
+				<label/>
+				<texturefocus>vista\controls\GUIDE.FOCUS.png</texturefocus>
+				<texturenofocus>vista\controls\GUIDE.NOFOCUS.png</texturenofocus>
+				<onclick>ActivateWindow(PVRGuideInfo)</onclick>
+				<onleft>600</onleft>
+				<onright>602</onright>
+			</control>
+			<control type="button" id="602">
+				<left>128</left>
+				<width>62</width>
+				<height>50</height>
+				<aspectratio>keep</aspectratio>
+				<label/>
+				<texturefocus>vista\controls\MINUS.FOCUS.png</texturefocus>
+				<texturenofocus>vista\controls\MINUS.NOFOCUS.png</texturenofocus>
+				<onclick>ChannelDown</onclick>
+				<onleft>601</onleft>
+				<onright>603</onright>
+			</control>
+			<control type="button" id="603">
+				<left>192</left>
+				<width>62</width>
+				<height>50</height>
+				<aspectratio>keep</aspectratio>
+				<label/>
+				<texturefocus>vista\controls\PLUS.FOCUS.png</texturefocus>
+				<texturenofocus>vista\controls\PLUS.NOFOCUS.png</texturenofocus>
+				<onclick>ChannelUp</onclick>
+				<onleft>602</onleft>
+				<onright>604</onright>
+			</control>
+
+			<control type="image">
+				<left>256</left>
+				<width>10</width>
+				<aspectratio>keep</aspectratio>
+				<texture>vista\controls\DIVIDER.png</texture>
+			</control>
+
+			<control type="button" id="604">
+				<left>268</left>
+				<width>62</width>
+				<height>50</height>
+				<aspectratio>keep</aspectratio>
+				<label/>
+				<texturefocus>vista\controls\STOP.FOCUS.png</texturefocus>
+				<texturenofocus>vista\controls\STOP.NOFOCUS.png</texturenofocus>
+				<onclick>PlayerControl(Stop)</onclick>
+				<onleft>603</onleft>
+				<onright>605</onright>
+			</control>
+
+			<control type="image">
+				<left>332</left>
+				<width>10</width>
+				<aspectratio>keep</aspectratio>
+				<texture>vista\controls\DIVIDER.png</texture>
+			</control>
+
+			<control type="button" id="605">
+				<left>344</left>
+				<width>62</width>
+				<height>50</height>
+				<aspectratio>keep</aspectratio>
+				<label/>
+				<texturefocus>vista\controls\BACKWARD.DISABLED.png</texturefocus>
+				<texturenofocus>vista\controls\BACKWARD.DISABLED.png</texturenofocus>
+				<onclick>PlayerControl(SmallSkipBackward)</onclick>
+				<onleft>604</onleft>
+				<onright>606</onright>
+			</control>
+			<control type="button" id="606">
+				<left>408</left>
+				<width>62</width>
+				<height>50</height>
+				<aspectratio>keep</aspectratio>
+				<label/>
+				<texturefocus>vista\controls\PREVIOUS.DISABLED.png</texturefocus>
+				<texturenofocus>vista\controls\PREVIOUS.DISABLED.png</texturenofocus>
+				<onclick>PlayerControl(Previous)</onclick>
+				<onleft>605</onleft>
+				<onright>607</onright>
+			</control>
+
+			<!-- Floating Play Button Integrated -->
+			<control type="togglebutton" id="607">
+				<left>472</left>
+				<top>-10</top>
+				<width>70</width>
+				<height>70</height>
+				<aspectratio>keep</aspectratio>
+				<label/>
+				<texturefocus>vista\controls\PAUSE.DISABLED.png</texturefocus>
+				<texturenofocus>vista\controls\PAUSE.DISABLED.png</texturenofocus>
+				<onclick>PlayerControl(Play)</onclick>
+				<usealttexture>Player.Paused | Player.Forwarding | Player.Rewinding</usealttexture>
+				<alttexturefocus>vista\controls\PLAY.DISABLED.png</alttexturefocus>
+				<alttexturenofocus>vista\controls\PLAY.DISABLED.png</alttexturenofocus>
+				<onleft>606</onleft>
+				<onright>608</onright>
+			</control>
+
+			<control type="button" id="608">
+				<left>544</left>
+				<width>62</width>
+				<height>50</height>
+				<aspectratio>keep</aspectratio>
+				<label/>
+				<texturefocus>vista\controls\NEXT.DISABLED.png</texturefocus>
+				<texturenofocus>vista\controls\NEXT.DISABLED.png</texturenofocus>
+				<onclick>PlayerControl(Next)</onclick>
+				<onleft>607</onleft>
+				<onright>609</onright>
+			</control>
+			<control type="button" id="609">
+				<left>608</left>
+				<width>62</width>
+				<height>50</height>
+				<aspectratio>keep</aspectratio>
+				<label/>
+				<texturefocus>vista\controls\FORWARD.DISABLED.png</texturefocus>
+				<texturenofocus>vista\controls\FORWARD.DISABLED.png</texturenofocus>
+				<onclick>PlayerControl(SmallSkipForward)</onclick>
+				<onleft>608</onleft>
+				<onright>610</onright>
+			</control>
+
+			<control type="image">
+				<left>672</left>
+				<width>10</width>
+				<aspectratio>keep</aspectratio>
+				<texture>vista\controls\DIVIDER.png</texture>
+			</control>
+
+			<control type="togglebutton" id="610">
+				<left>684</left>
+				<width>62</width>
+				<height>50</height>
+				<aspectratio>keep</aspectratio>
+				<label/>
+				<texturefocus>vista\controls\MUTE.FOCUS.png</texturefocus>
+				<texturenofocus>vista\controls\MUTE.NOFOCUS.png</texturenofocus>
+				<onclick>Mute()</onclick>
+				<usealttexture>Player.Muted</usealttexture>
+				<alttexturefocus>vista\controls\MUTEON.FOCUS.png</alttexturefocus>
+				<alttexturenofocus>vista\controls\MUTEON.NOFOCUS.png</alttexturenofocus>
+				<onleft>609</onleft>
+				<onright>611</onright>
+			</control>
+			<control type="button" id="611">
+				<left>748</left>
+				<width>62</width>
+				<height>50</height>
+				<aspectratio>keep</aspectratio>
+				<label/>
+				<texturefocus>vista\controls\MINUS.FOCUS.png</texturefocus>
+				<texturenofocus>vista\controls\MINUS.NOFOCUS.png</texturenofocus>
+				<onclick>VolumeDown</onclick>
+				<onleft>610</onleft>
+				<onright>612</onright>
+			</control>
+			<control type="button" id="612">
+				<left>812</left>
+				<width>62</width>
+				<height>50</height>
+				<aspectratio>keep</aspectratio>
+				<label/>
+				<texturefocus>vista\controls\PLUS.FOCUS.png</texturefocus>
+				<texturenofocus>vista\controls\PLUS.NOFOCUS.png</texturenofocus>
+				<onclick>VolumeUp</onclick>
+				<controloffsety>20</controloffsety>
+				<onleft>611</onleft>
+				<onright>612</onright>
+			</control>
 		</control>
+	</control>
+			
+	<!-- ================= STANDARD MEDIA CONTROLS ================= -->
+	<control type="group" id="90050">
+		<visible>Player.HasMedia</visible>
+		<visible>!VideoPlayer.Content(LiveTV)</visible>
+		<include>VisibleFadeEffect</include>
+		<defaultcontrol always="true">707</defaultcontrol>
 		<control type="image">
-			<width>10</width>
+			<width>1920</width>
+			<top>-15</top>
+			<height>100</height>
+			<left>-550</left>
 			<aspectratio>keep</aspectratio>
-			<texture>vista\controls\DIVIDER.png</texture>
+			<texture>vista\controls\bottombar.png</texture>
 		</control>
-		<control type="button" id="605">
-			<width>62</width>
+
+		<!-- Converted to standard group with manual pixel coordinates -->
+		<control type="group" id="9005">
+			<width>1000</width>
 			<height>50</height>
-			<aspectratio>keep</aspectratio>
-			<label/>
-			<texturefocus>vista\controls\BACKWARD.DISABLED.png</texturefocus>
-			<texturenofocus>vista\controls\BACKWARD.DISABLED.png</texturenofocus>
-			<onclick>PlayerControl(SmallSkipBackward)</onclick>
-		</control>
-		<control type="button" id="606">
-			<width>62</width>
-			<height>50</height>
-			<aspectratio>keep</aspectratio>
-			<label/>
-			<texturefocus>vista\controls\PREVIOUS.DISABLED.png</texturefocus>
-			<texturenofocus>vista\controls\PREVIOUS.DISABLED.png</texturenofocus>
-			<onclick>PlayerControl(Previous)</onclick>
-		</control>
-		<control type="group">
-			<width>70</width>
-			<height>70</height>
-		</control>
-		<control type="button" id="608">
-			<width>62</width>
-			<height>50</height>
-			<aspectratio>keep</aspectratio>
-			<label/>
-			<texturefocus>vista\controls\NEXT.DISABLED.png</texturefocus>
-			<texturenofocus>vista\controls\NEXT.DISABLED.png</texturenofocus>
-			<onclick>PlayerControl(Next)</onclick>
-		</control>
-		<control type="button" id="609">
-			<width>62</width>
-			<height>50</height>
-			<aspectratio>keep</aspectratio>
-			<label/>
-			<texturefocus>vista\controls\FORWARD.DISABLED.png</texturefocus>
-			<texturenofocus>vista\controls\FORWARD.DISABLED.png</texturenofocus>
-			<onclick>PlayerControl(SmallSkipForward)</onclick>
-		</control>
-		<control type="image">
-			<width>10</width>
-			<aspectratio>keep</aspectratio>
-			<texture>vista\controls\DIVIDER.png</texture>
-		</control>
-		<control type="togglebutton" id="610">
-			<width>62</width>
-			<height>50</height>
-			<aspectratio>keep</aspectratio>
-			<label/>
-			<texturefocus>vista\controls\MUTE.FOCUS.png</texturefocus>
-			<texturenofocus>vista\controls\MUTE.NOFOCUS.png</texturenofocus>
-			<onclick>Mute()</onclick>
-			<usealttexture>Player.Muted</usealttexture>
-			<alttexturefocus>vista\controls\MUTEON.FOCUS.png</alttexturefocus>
-			<alttexturenofocus>vista\controls\MUTEON.NOFOCUS.png</alttexturenofocus>
-		</control>
-		<control type="button" id="611">
-			<width>62</width>
-			<height>50</height>
-			<aspectratio>keep</aspectratio>
-			<label/>
-			<texturefocus>vista\controls\MINUS.FOCUS.png</texturefocus>
-			<texturenofocus>vista\controls\MINUS.NOFOCUS.png</texturenofocus>
-			<onclick>VolumeDown</onclick>
-		</control>
-		<control type="button" id="612">
-			<width>62</width>
-			<height>50</height>
-			<aspectratio>keep</aspectratio>
-			<label/>
-			<texturefocus>vista\controls\PLUS.FOCUS.png</texturefocus>
-			<texturenofocus>vista\controls\PLUS.NOFOCUS.png</texturenofocus>
-			<onclick>VolumeUp</onclick>
-			<controloffsety>20</controloffsety>
-		</control>
-	</control>
-</control>
-		
-		
-<control type="group" id="90050">
-	<visible>Player.HasMedia</visible>
-	<visible>!VideoPlayer.Content(LiveTV)</visible>
-	<include>VisibleFadeEffect</include>
-	<control type="image">
-		<width>1920</width>
-		<top>-15</top>
-		<height>100</height>
-		<left>-550</left>
-		<aspectratio>keep</aspectratio>
-		<texture>vista\controls\bottombar.png</texture>
-	</control>
-	<control type="togglebutton" id="707">
-		<top>-10</top>
-		<left>470</left>
-		<width>70</width>
-		<height>70</height>
-		<aspectratio>keep</aspectratio>
-		<label/>
-		<texturefocus>vista\controls\PAUSE.FOCUS.png</texturefocus>
-		<texturenofocus>vista\controls\PAUSE.NOFOCUS.png</texturenofocus>
-		<onclick>PlayerControl(Play)</onclick>
-		<usealttexture>Player.Paused | Player.Forwarding | Player.Rewinding</usealttexture>
-		<alttexturefocus>vista\controls\PLAY.FOCUS.png</alttexturefocus>
-		<alttexturenofocus>vista\controls\PLAY.NOFOCUS.png</alttexturenofocus>
-	</control>
-	<control type="grouplist" id="9005">
-		<width>1000</width>
-		<height>50</height>
-		<itemgap>2</itemgap>
-		<orientation>horizontal</orientation>
-		<onright>50</onright>
-		<onback>50</onback>
-		<onup>610</onup>
-		<ondown>611</ondown>
-		<defaultcontrol always="true">603</defaultcontrol>
-		<control type="button" id="700">
-			<width>62</width>
-			<height>50</height>
-			<aspectratio>keep</aspectratio>
-			<label/>
-			<texturefocus>vista\controls\RECORD.DISABLED.png</texturefocus>
-			<texturenofocus>vista\controls\RECORD.DISABLED.png</texturenofocus>
-		</control>
-		<control type="button" id="701">
-			<width>62</width>
-			<height>50</height>
-			<aspectratio>keep</aspectratio>
-			<label/>
-			<texturefocus>vista\controls\GUIDE.FOCUS.png</texturefocus>
-			<texturenofocus>vista\controls\GUIDE.NOFOCUS.png</texturenofocus>
-			<onclick condition="!Player.HasVideo">ActivateWindow(MusicPlaylist)</onclick>
-			<usealttexture>true</usealttexture>
+
+			<control type="button" id="700">
+				<left>0</left>
+				<width>62</width>
+				<height>50</height>
+				<aspectratio>keep</aspectratio>
+				<label/>
+				<texturefocus>vista\controls\RECORD.DISABLED.png</texturefocus>
+				<texturenofocus>vista\controls\RECORD.DISABLED.png</texturenofocus>
+				<onleft>100117</onleft>
+				<onright>701</onright>
+			</control>
+			<control type="button" id="701">
+				<left>64</left>
+				<width>62</width>
+				<height>50</height>
+				<aspectratio>keep</aspectratio>
+				<label/>
+				<texturefocus>vista\controls\GUIDE.FOCUS.png</texturefocus>
+				<texturenofocus>vista\controls\GUIDE.NOFOCUS.png</texturenofocus>
+				<onclick condition="!Player.HasVideo">ActivateWindow(MusicPlaylist)</onclick>
+				<usealttexture>true</usealttexture>
 				<alttexturefocus>vista\controls\GUIDE.FOCUS.png</alttexturefocus>
 				<alttexturenofocus>vista\controls\GUIDE.NOFOCUS.png</alttexturenofocus>
-		</control>
-		<control type="button" id="702">
-			<width>62</width>
-			<height>50</height>
-			<aspectratio>keep</aspectratio>
-			<label/>
-			<texturefocus>vista\controls\MINUS.DISABLED.png</texturefocus>
-			<texturenofocus>vista\controls\MINUS.DISABLED.png</texturenofocus>
-		</control>
-		<control type="button" id="703">
-			<width>62</width>
-			<height>50</height>
-			<aspectratio>keep</aspectratio>
-			<label/>
-			<texturefocus>vista\controls\PLUS.DISABLED.png</texturefocus>
-			<texturenofocus>vista\controls\PLUS.DISABLED.png</texturenofocus>
-		</control>
-		<control type="image">
-			<width>10</width>
-			<aspectratio>keep</aspectratio>
-			<texture>vista\controls\DIVIDER.png</texture>
-		</control>
-		<control type="button" id="704">
-			<width>62</width>
-			<height>50</height>
-			<aspectratio>keep</aspectratio>
-			<label/>
-			<texturefocus>vista\controls\STOP.FOCUS.png</texturefocus>
-			<texturenofocus>vista\controls\STOP.NOFOCUS.png</texturenofocus>
-			<onclick>PlayerControl(Stop)</onclick>
-		</control>
-		<control type="image">
-			<width>10</width>
-			<aspectratio>keep</aspectratio>
-			<texture>vista\controls\DIVIDER.png</texture>
-		</control>
-		<control type="button" id="705">
-			<width>62</width>
-			<height>50</height>
-			<aspectratio>keep</aspectratio>
-			<label/>
-			<texturefocus>vista\controls\BACKWARD.FOCUS.png</texturefocus>
-			<texturenofocus>vista\controls\BACKWARD.NOFOCUS.png</texturenofocus>
-			<onclick>PlayerControl(SmallSkipBackward)</onclick>
-		</control>
-		<control type="button" id="706">
-			<width>62</width>
-			<height>50</height>
-			<aspectratio>keep</aspectratio>
-			<label/>
-			<texturefocus>vista\controls\PREVIOUS.FOCUS.png</texturefocus>
-			<texturenofocus>vista\controls\PREVIOUS.NOFOCUS.png</texturenofocus>
-			<onclick>PlayerControl(Previous)</onclick>
-		</control>
-		<control type="group">
-			<width>70</width>
-			<height>70</height>
-		</control>
-		<control type="button" id="708">
-			<width>62</width>
-			<height>50</height>
-			<aspectratio>keep</aspectratio>
-			<label/>
-			<texturefocus>vista\controls\NEXT.FOCUS.png</texturefocus>
-			<texturenofocus>vista\controls\NEXT.NOFOCUS.png</texturenofocus>
-			<onclick>PlayerControl(Next)</onclick>
-		</control>
-		<control type="button" id="709">
-			<width>62</width>
-			<height>50</height>
-			<aspectratio>keep</aspectratio>
-			<label/>
-			<texturefocus>vista\controls\FORWARD.FOCUS.png</texturefocus>
-			<texturenofocus>vista\controls\FORWARD.NOFOCUS.png</texturenofocus>
-			<onclick>PlayerControl(SmallSkipForward)</onclick>
-		</control>
-		<control type="image">
-			<width>10</width>
-			<aspectratio>keep</aspectratio>
-			<texture>vista\controls\DIVIDER.png</texture>
-		</control>
-		<control type="togglebutton" id="710">
-			<width>62</width>
-			<height>50</height>
-			<aspectratio>keep</aspectratio>
-			<label/>
-			<texturefocus>vista\controls\MUTE.FOCUS.png</texturefocus>
-			<texturenofocus>vista\controls\MUTE.NOFOCUS.png</texturenofocus>
-			<onclick>Mute()</onclick>
-			<usealttexture>Player.Muted</usealttexture>
-			<alttexturefocus>vista\controls\MUTEON.FOCUS.png</alttexturefocus>
-			<alttexturenofocus>vista\controls\MUTEON.NOFOCUS.png</alttexturenofocus>
-		</control>
-		<control type="button" id="711">
-			<width>62</width>
-			<height>50</height>
-			<aspectratio>keep</aspectratio>
-			<label/>
-			<texturefocus>vista\controls\MINUS.FOCUS.png</texturefocus>
-			<texturenofocus>vista\controls\MINUS.NOFOCUS.png</texturenofocus>
-			<onclick>VolumeDown</onclick>
-		</control>
-		<control type="button" id="712">
-			<width>62</width>
-			<height>50</height>
-			<aspectratio>keep</aspectratio>
-			<label/>
-			<texturefocus>vista\controls\PLUS.FOCUS.png</texturefocus>
-			<texturenofocus>vista\controls\PLUS.NOFOCUS.png</texturenofocus>
-			<onclick>VolumeUp</onclick>
-			<controloffsety>20</controloffsety>
+				<onleft>700</onleft>
+				<onright>702</onright>
+			</control>
+			<control type="button" id="702">
+				<left>128</left>
+				<width>62</width>
+				<height>50</height>
+				<aspectratio>keep</aspectratio>
+				<label/>
+				<texturefocus>vista\controls\MINUS.DISABLED.png</texturefocus>
+				<texturenofocus>vista\controls\MINUS.DISABLED.png</texturenofocus>
+				<onleft>701</onleft>
+				<onright>703</onright>
+			</control>
+			<control type="button" id="703">
+				<left>192</left>
+				<width>62</width>
+				<height>50</height>
+				<aspectratio>keep</aspectratio>
+				<label/>
+				<texturefocus>vista\controls\PLUS.DISABLED.png</texturefocus>
+				<texturenofocus>vista\controls\PLUS.DISABLED.png</texturenofocus>
+				<onleft>702</onleft>
+				<onright>704</onright>
+			</control>
+
+			<control type="image">
+				<left>256</left>
+				<width>10</width>
+				<aspectratio>keep</aspectratio>
+				<texture>vista\controls\DIVIDER.png</texture>
+			</control>
+
+			<control type="button" id="704">
+				<left>268</left>
+				<width>62</width>
+				<height>50</height>
+				<aspectratio>keep</aspectratio>
+				<label/>
+				<texturefocus>vista\controls\STOP.FOCUS.png</texturefocus>
+				<texturenofocus>vista\controls\STOP.NOFOCUS.png</texturenofocus>
+				<onclick>PlayerControl(Stop)</onclick>
+				<onleft>703</onleft>
+				<onright>705</onright>
+			</control>
+
+			<control type="image">
+				<left>332</left>
+				<width>10</width>
+				<aspectratio>keep</aspectratio>
+				<texture>vista\controls\DIVIDER.png</texture>
+			</control>
+
+			<control type="button" id="705">
+				<left>344</left>
+				<width>62</width>
+				<height>50</height>
+				<aspectratio>keep</aspectratio>
+				<label/>
+				<texturefocus>vista\controls\BACKWARD.FOCUS.png</texturefocus>
+				<texturenofocus>vista\controls\BACKWARD.NOFOCUS.png</texturenofocus>
+				<onclick>PlayerControl(SmallSkipBackward)</onclick>
+				<onleft>704</onleft>
+				<onright>706</onright>
+			</control>
+			<control type="button" id="706">
+				<left>408</left>
+				<width>62</width>
+				<height>50</height>
+				<aspectratio>keep</aspectratio>
+				<label/>
+				<texturefocus>vista\controls\PREVIOUS.FOCUS.png</texturefocus>
+				<texturenofocus>vista\controls\PREVIOUS.NOFOCUS.png</texturenofocus>
+				<onclick>PlayerControl(Previous)</onclick>
+				<onleft>705</onleft>
+				<onright>707</onright>
+			</control>
+
+			<!-- Floating Play Button Integrated -->
+			<control type="togglebutton" id="707">
+				<left>472</left>
+				<top>-10</top>
+				<width>70</width>
+				<height>70</height>
+				<aspectratio>keep</aspectratio>
+				<label/>
+				<texturefocus>vista\controls\PAUSE.FOCUS.png</texturefocus>
+				<texturenofocus>vista\controls\PAUSE.NOFOCUS.png</texturenofocus>
+				<onclick>PlayerControl(Play)</onclick>
+				<usealttexture>Player.Paused | Player.Forwarding | Player.Rewinding</usealttexture>
+				<alttexturefocus>vista\controls\PLAY.FOCUS.png</alttexturefocus>
+				<alttexturenofocus>vista\controls\PLAY.NOFOCUS.png</alttexturenofocus>
+				<onleft>706</onleft>
+				<onright>708</onright>
+			</control>
+
+			<control type="button" id="708">
+				<left>544</left>
+				<width>62</width>
+				<height>50</height>
+				<aspectratio>keep</aspectratio>
+				<label/>
+				<texturefocus>vista\controls\NEXT.FOCUS.png</texturefocus>
+				<texturenofocus>vista\controls\NEXT.NOFOCUS.png</texturenofocus>
+				<onclick>PlayerControl(Next)</onclick>
+				<onleft>707</onleft>
+				<onright>709</onright>
+			</control>
+			<control type="button" id="709">
+				<left>608</left>
+				<width>62</width>
+				<height>50</height>
+				<aspectratio>keep</aspectratio>
+				<label/>
+				<texturefocus>vista\controls\FORWARD.FOCUS.png</texturefocus>
+				<texturenofocus>vista\controls\FORWARD.NOFOCUS.png</texturenofocus>
+				<onclick>PlayerControl(SmallSkipForward)</onclick>
+				<onleft>708</onleft>
+				<onright>710</onright>
+			</control>
+
+			<control type="image">
+				<left>672</left>
+				<width>10</width>
+				<aspectratio>keep</aspectratio>
+				<texture>vista\controls\DIVIDER.png</texture>
+			</control>
+
+			<control type="togglebutton" id="710">
+				<left>684</left>
+				<width>62</width>
+				<height>50</height>
+				<aspectratio>keep</aspectratio>
+				<label/>
+				<texturefocus>vista\controls\MUTE.FOCUS.png</texturefocus>
+				<texturenofocus>vista\controls\MUTE.NOFOCUS.png</texturenofocus>
+				<onclick>Mute()</onclick>
+				<usealttexture>Player.Muted</usealttexture>
+				<alttexturefocus>vista\controls\MUTEON.FOCUS.png</alttexturefocus>
+				<alttexturenofocus>vista\controls\MUTEON.NOFOCUS.png</alttexturenofocus>
+				<onleft>709</onleft>
+				<onright>711</onright>
+			</control>
+			<control type="button" id="711">
+				<left>748</left>
+				<width>62</width>
+				<height>50</height>
+				<aspectratio>keep</aspectratio>
+				<label/>
+				<texturefocus>vista\controls\MINUS.FOCUS.png</texturefocus>
+				<texturenofocus>vista\controls\MINUS.NOFOCUS.png</texturenofocus>
+				<onclick>VolumeDown</onclick>
+				<onleft>710</onleft>
+				<onright>712</onright>
+			</control>
+			<control type="button" id="712">
+				<left>812</left>
+				<width>62</width>
+				<height>50</height>
+				<aspectratio>keep</aspectratio>
+				<label/>
+				<texturefocus>vista\controls\PLUS.FOCUS.png</texturefocus>
+				<texturenofocus>vista\controls\PLUS.NOFOCUS.png</texturenofocus>
+				<onclick>VolumeUp</onclick>
+				<controloffsety>20</controloffsety>
+				<onleft>711</onleft>
+				<onright>712</onright>
+			</control>
 		</control>
 	</control>
-</control>
-		<!-- Weird button
-		<control type="radiobutton" id="611">
-			<description>Go to fullscreen Playback</description>
-			<include>ButtonCommonValues</include>
-			<label>31008</label>
-			<onclick>fullscreen</onclick>
-			<textureradioonfocus>GoFullscreen.png</textureradioonfocus>
-			<textureradioonnofocus>GoFullscreen.png</textureradioonnofocus>
-			<textureradioofffocus>GoFullscreen.png</textureradioofffocus>
-			<textureradiooffnofocus>GoFullscreen.png</textureradiooffnofocus>
-			<visible>Player.HasMedia</visible>
-		</control>
-		<control type="button" id="612">
-			<description>Go to playlist</description>
-			<include>ButtonCommonValues</include>
-			<label>13350</label>
-			<onclick>$VAR[PlayList]</onclick>
-			<visible>[Window.IsActive(Videos) + !String.IsEqual(Playlist.Length(video),0)] | [Window.IsActive(Music) + !String.IsEqual(Playlist.Length(music),0)]</visible>
-		</control> -->
-	</include>
-	<include name="ScrollOffsetLabel">
-		<control type="group">
-			<depth>DepthSideBlade</depth>
-			<visible>Container.Scrolling + [String.IsEqual(Container.SortMethod,$LOCALIZE[551]) | String.IsEqual(Container.SortMethod,$LOCALIZE[561]) | String.IsEqual(Container.SortMethod,$LOCALIZE[558]) | String.IsEqual(Container.SortMethod,$LOCALIZE[557]) | String.IsEqual(Container.SortMethod,$LOCALIZE[556])]</visible>
-			<animation effect="slide" start="0,0" end="0,-60" time="75">Visible</animation>
-			<animation effect="slide" start="0,-60" end="0,0" delay="300" time="75">Hidden</animation>
-			<left>150r</left>
-			<top>850</top>
-			<control type="image">
-				<left>0</left>
-				<top>0</top>
-				<width>70</width>
-				<height>65</height>
-				<texture border="20,20,20,2">InfoMessagePanel.png</texture>
-				<visible>0</visible>
-			</control>
-			<control type="label">
-				<left>0</left>
-				<top>0</top>
-				<width>150</width>
-				<height>120</height>
-				<align>center</align>
-				<aligny>center</aligny>
-				<label>$INFO[Container(601).ListItem.SortLetter]</label>
-				<textcolor>FFFFFFFF</textcolor>
-				<font>fontPage_SortLetter</font>
-			</control>
-		</control>
-	</include>
+</include>
 	<include name="Clock">
 		<control type="label">
 			<description>time label</description>
