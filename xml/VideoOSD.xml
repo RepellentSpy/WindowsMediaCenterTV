@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
-	<defaultcontrol always="true">100</defaultcontrol>
-	<onload condition="!VideoPlayer.Content(LiveTV)">SetFocus(202)</onload>
+	<defaultcontrol always="true">100100</defaultcontrol>
+	<onload condition="!VideoPlayer.Content(LiveTV)">SetFocus(100100)</onload>
 	<include>dialogeffect</include>
 	<depth>DepthOSD</depth>
 	<coordinates>
@@ -10,58 +10,33 @@
 	</coordinates>
 	<controls>
 		<include>MainWindowMouseButtons</include>
-		<!-- <control type="slider" id="87">
-			<depth>DepthOSD+</depth>
-			<description>Seek Slider</description>
-			<left>390</left>
-			<top>140r</top>
-			<width>1175</width>
-			<height>100</height>
-			<onup>702</onup>
-			<ondown>26</ondown>
-			<action>seek</action>
-			<texturesliderbar>seekslider2.png</texturesliderbar>
-			<textureslidernib>osd_slider_nibNF.png</textureslidernib>
-			<textureslidernibfocus>osd_slider_nib.png</textureslidernibfocus>
-			<animation effect="fade" time="150">VisibleChange</animation>
-			<visible>false + ![Window.IsVisible(SliderDialog) | Window.IsVisible(OSDSubtitleSettings) | Window.IsVisible(OSDVideoSettings) | Window.IsVisible(OSDAudioSettings) | Window.IsVisible(VideoBookmarks) | VideoPlayer.Content(LiveTV)]</visible>
-		</control> -->
-	<control type="group" >
-		
-					<left>1020</left>
-				<top>1000</top>
-	
-	<include>CommonNowPlaying_Controls</include>
-		
-				</control>
+
+		<!-- Assigned ID 6000 and an onleft return path to the left menu -->
+		<control type="group" id="6000">
+			<left>1020</left>
+			<top>1000</top>
+			<onleft>100100</onleft>
+			<include>CommonNowPlaying_Controls</include>
+		</control>
 				
-		<control type="grouplist" id="100100">
+		<!-- Converted Left Menu to a standard group with manual pixel coordinates -->
+		<control type="group" id="100100">
 			<top>80r</top>
-			<onup>100</onup>
-			<ondown>100</ondown>
-	<left>20</left>
-				<height>50</height>
-			<align>left</align>
-			<orientation>horizontal</orientation>
-			<itemgap>1</itemgap>
-		
+			<left>20</left>
+			<height>50</height>
+			<width>400</width>
+			<defaultcontrol always="true">100104</defaultcontrol>
 	
 			<control type="image" id="100103">
+				<left>0</left>
 				<width>5</width>
 				<texture />
 			</control>
-			<!-- <control type="image" id="100101">
-				<width>10</width>
-				<height>40</height>
-				<texture colordiffuse="99FFFFFF">OSD_Divider.png</texture>
-			</control>
-			<control type="image" id="100101">
-				<width>5</width>
-				<texture />
-			</control> -->
+
 			<control type="togglebutton" id="100104">
-					<width>62</width>
-					<height>50</height>
+				<left>6</left>
+				<width>62</width>
+				<height>50</height>
 				<label>31351</label>
 				<altlabel>208</altlabel>
 				<font/>
@@ -71,76 +46,85 @@
 				<alttexturefocus>vista\controls\CLOSEDCAPTIONS.FOCUS.png</alttexturefocus>
 				<alttexturenofocus>vista\controls\CLOSEDCAPTIONS.DISABLED.png</alttexturenofocus>
 				<onclick>ShowSubtitles</onclick>
+				<onright>100106</onright>
 			</control>
 	
 			<control type="button" id="100106">
-		<width>62</width>
-					<height>50</height>
+				<left>69</left>
+				<width>62</width>
+				<height>50</height>
 				<label>31351</label>
 				<altlabel>208</altlabel>
 				<font/>
 				<texturefocus>vista\controls\PLUS.FOCUS.png</texturefocus>
 				<texturenofocus>vista\controls\PLUS.NOFOCUS.png</texturenofocus>
 				<onclick>ActivateWindow(subtitlesearch)</onclick>
+				<onleft>100104</onleft>
+				<onright>100108</onright>
 			</control>
 
 			<control type="button" id="100108">
-		<width>62</width>
-					<height>50</height>
+				<left>132</left>
+				<width>62</width>
+				<height>50</height>
 				<label>31351</label>
 				<altlabel>208</altlabel>
 				<font/>
 				<texturefocus>vista\controls\GUIDE.FOCUS.png</texturefocus>
 				<texturenofocus>vista\controls\GUIDE.NOFOCUS.png</texturenofocus>
 				<onclick>ActivateWindow(OSDSubtitleSettings)</onclick>
-				<!-- <animation effect="fade" start="100" end="50" time="75" condition="!Player.PauseEnabled">Conditional</animation> -->
+				<onleft>100106</onleft>
+				<onright>100113</onright>
 			</control>
-								<control type="image">
-		
-				<width>10</width>
 
-					<aspectratio>keep</aspectratio>
+			<control type="image">
+				<left>195</left>
+				<width>10</width>
+				<aspectratio>keep</aspectratio>
 				<texture>vista\controls\DIVIDER.png</texture>
 			</control>
 
 			<control type="button" id="100113">
-		<width>62</width>
-					<height>50</height>
-				<label>31351</label>
-				<altlabel>208</altlabel>
-				<font/>
-			<texturefocus>vista\controls\MUTE.FOCUS.png</texturefocus>
-				<texturenofocus>vista\controls\MUTE.NOFOCUS.png</texturenofocus>
-				<onclick>ActivateWindow(OSDAudioSettings)</onclick>
-				<!-- <animation effect="fade" start="100" end="50" time="75" condition="!Player.PauseEnabled">Conditional</animation> -->
-			</control>
-							<control type="image">
-		
-				<width>10</width>
-
-					<aspectratio>keep</aspectratio>
-				<texture>vista\controls\DIVIDER.png</texture>
-			</control>
-
-			<control type="button" id="100117">
+				<left>206</left>
 				<width>62</width>
 				<height>50</height>
 				<label>31351</label>
 				<altlabel>208</altlabel>
 				<font/>
-		<texturefocus>vista\controls\SUBTITLES.FOCUS.png</texturefocus>
+				<texturefocus>vista\controls\MUTE.FOCUS.png</texturefocus>
+				<texturenofocus>vista\controls\MUTE.NOFOCUS.png</texturenofocus>
+				<onclick>ActivateWindow(OSDAudioSettings)</onclick>
+				<onleft>100108</onleft>
+				<onright>100117</onright>
+			</control>
+
+			<control type="image">
+				<left>269</left>
+				<width>10</width>
+				<aspectratio>keep</aspectratio>
+				<texture>vista\controls\DIVIDER.png</texture>
+			</control>
+
+			<control type="button" id="100117">
+				<left>280</left>
+				<width>62</width>
+				<height>50</height>
+				<label>31351</label>
+				<altlabel>208</altlabel>
+				<font/>
+				<texturefocus>vista\controls\SUBTITLES.FOCUS.png</texturefocus>
 				<texturenofocus>vista\controls\SUBTITLES.NOFOCUS.png</texturenofocus>
 				<onclick>ActivateWindow(OSDVideoSettings)</onclick>
-				<!-- <animation effect="fade" start="100" end="50" time="75" condition="!Player.PauseEnabled">Conditional</animation> -->
+				<onleft>100113</onleft>
+				<onright>6000</onright>
 			</control>
+
 			<control type="image" id="100120">
+				<left>343</left>
 				<width>10</width>
 				<texture/>
 			</control>
 		</control>
-		
-		
-
 		
 		<control type="button" id="410">
 			<description>Fake button for mouse control</description>
@@ -179,8 +163,8 @@
 			<width>256</width>
 			<height>220</height>
 			<itemgap>0</itemgap>
-			<onleft>100</onleft>
-			<onright>100</onright>
+			<onleft>100100</onleft>
+			<onright>100100</onright>
 			<onup>255</onup>
 			<ondown>255</ondown>
 			<orientation>vertical</orientation>
@@ -256,7 +240,5 @@
 				<texture border="20,0,20,50">SubMenuBack-Footer.png</texture>
 			</control>
 		</control>
-		
-		
 	</controls>
 </window>
